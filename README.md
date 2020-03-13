@@ -25,7 +25,7 @@ This assumes the above classes are not available in `com.vertispan.j2cl:jre`.
 
 ### Transpiling
 
-The `j2cl-maven-plugin` will repackage the source during the transpile phase, so `walkingkooka.javaioj2cl.java.io`
+The `j2cl-maven-plugin` will shade the source during the transpile phase, so `walkingkooka.javaioj2cl.java.io`
 is available to the runtime as `java.io`. 
 
 
