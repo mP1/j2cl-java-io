@@ -234,6 +234,7 @@ public class PushbackInputStream extends FilterInputStream {
      *             if this stream is closed or another I/O error occurs.
      */
     @Override
+    @SuppressWarnings("lgtm[java/implicit-cast-in-compound-assignment]")
     public long skip(long count) throws IOException {
         if (in == null) {
             //throw new IOException(Messages.getString("luni.24")); //$NON-NLS-1$
@@ -361,7 +362,8 @@ public class PushbackInputStream extends FilterInputStream {
      *            the mark is invalidated; this parameter is ignored.
      */
     @Override
-    public void mark(int readlimit) {
+    // synchronized added to suppress LGTM Alert
+    public synchronized void mark(int readlimit) {
         return;
     }
 
@@ -374,7 +376,8 @@ public class PushbackInputStream extends FilterInputStream {
      *             if this method is called.
      */
     @Override
-    public void reset() throws IOException {
+    // synchronized added to suppress LGTM Alert
+    public synchronized void reset() throws IOException {
         throw new IOException();
     }
 }
