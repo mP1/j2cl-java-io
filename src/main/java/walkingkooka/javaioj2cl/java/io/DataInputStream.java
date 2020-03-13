@@ -478,6 +478,7 @@ public class DataInputStream extends FilterInputStream implements DataInput {
      * @see #mark(int)
      * @see #reset()
      */
+    @SuppressWarnings("lgtm[java/implicit-cast-in-compound-assignment]")
     public final int skipBytes(int count) throws IOException {
         int skipped = 0;
         long skip;
