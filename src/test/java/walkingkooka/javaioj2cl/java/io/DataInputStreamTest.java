@@ -27,7 +27,7 @@ import java.io.ByteArrayOutputStream;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public final class DataInputStreamTest implements ClassTesting2<DataInputStream> {
+public final class DataInputStreamTest extends JavaIoTestCase<DataInputStream> {
 
     @Override
     public void testAllConstructorsVisibility() {
@@ -370,7 +370,7 @@ public final class DataInputStreamTest implements ClassTesting2<DataInputStream>
     }
 
     @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
+    Class<?> jdkType() {
+        return java.io.DataInputStream.class;
     }
 }

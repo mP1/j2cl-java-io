@@ -17,22 +17,33 @@
 
 package walkingkooka.javaioj2cl.java.io;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting2;
+import walkingkooka.reflect.J2clShadedClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public class UTFDataFormatExceptionTest extends JavaIoTestCase<UTFDataFormatException> {
+import java.io.IOException;
 
-    @Override
-    public void testAllConstructorsVisibility() {
+public abstract class JavaIoTestCase<T> implements ClassTesting2<T>, J2clShadedClassTesting {
+
+    JavaIoTestCase() {
+        super();
+    }
+
+    @Test
+    public final void testFieldDeclarations() throws IOException {
+        this.fieldDeclarationsCheck(this.type(), this.jdkType());
+    }
+
+    @Test
+    public final void testMethodSignatures() throws IOException {
+        this.methodSignaturesCheck(this.type(), this.jdkType());
     }
 
     @Override
-    public Class<UTFDataFormatException> type() {
-        return UTFDataFormatException.class;
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.of(this.jdkType());
     }
 
-    @Override
-    Class<?> jdkType() {
-        return java.io.UTFDataFormatException.class;
-    }
+    abstract Class<?> jdkType();
 }

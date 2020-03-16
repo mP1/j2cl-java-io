@@ -20,7 +20,7 @@ package walkingkooka.javaioj2cl.java.io;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
 
-public class EOFExceptionTest implements ClassTesting2<EOFException> {
+public class EOFExceptionTest extends JavaIoTestCase<EOFException> {
 
     @Override
     public void testAllConstructorsVisibility() {
@@ -32,7 +32,7 @@ public class EOFExceptionTest implements ClassTesting2<EOFException> {
     }
 
     @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.of(java.io.EOFException.class);
+    Class<?> jdkType() {
+        return java.io.EOFException.class;
     }
 }
