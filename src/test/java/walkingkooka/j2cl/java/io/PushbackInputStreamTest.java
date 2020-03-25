@@ -15,9 +15,9 @@
  *
  */
 
-package walkingkooka.javaioj2cl.java.io;
+package walkingkooka.j2cl.java.io;
 
-public final class DataOutputTest extends JavaIoTestCase<DataOutput> {
+public final class PushbackInputStreamTest extends JavaIoTestCase<PushbackInputStream> {
 
     @Override
     public void testAllConstructorsVisibility() {
@@ -26,12 +26,12 @@ public final class DataOutputTest extends JavaIoTestCase<DataOutput> {
     // ClassTesting2....................................................................................................
 
     @Override
-    public Class<DataOutput> type() {
-        return DataOutput.class;
+    public Class<PushbackInputStream> type() {
+        return PushbackInputStream.class;
     }
 
     @Override
     Class<?> jdkType() {
-        return java.io.DataOutput.class;
+        return java.io.PushbackInputStream.class;
     }
 }

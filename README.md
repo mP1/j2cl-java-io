@@ -1,12 +1,12 @@
-[![Build Status](https://travis-ci.com/mP1/java-io-j2cl.svg?branch=master)](https://travis-ci.com/mP1/java-io-j2cl.svg?branch=master)
-[![Coverage Status](https://coveralls.io/repos/github/mP1/java-io-j2cl/badge.svg?branch=master)](https://coveralls.io/github/mP1/java-io-j2cl?branch=master)
+[![Build Status](https://travis-ci.com/mP1/j2cl-java-io.svg?branch=master)](https://travis-ci.com/mP1/j2cl-java-io.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/mP1/j2cl-java-io/badge.svg?branch=master)](https://coveralls.io/github/mP1/j2cl-java-io?branch=master)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/mP1/java-io-j2cl.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mP1/java-io-j2cl/context:java)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/mP1/java-io-j2cl.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mP1/java-io-j2cl/alerts/)
+[![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/mP1/j2cl-java-io.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mP1/j2cl-java-io/context:java)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/mP1/j2cl-java-io.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mP1/j2cl-java-io/alerts/)
 
 
 
-# java.io j2cl
+# java.io for j2cl
 
 The following source have been copied from the Apache Harmony project with minor changes. The most significant change
 is the replacement of calls to `Messages` to fetch exception messages from a properties file, with the actual String literal.
@@ -25,7 +25,7 @@ This assumes the above classes are not available in `com.vertispan.j2cl:jre`.
 
 ### Transpiling
 
-The `j2cl-maven-plugin` will shade the source during the transpile phase, so `walkingkooka.javaioj2cl.java.io`
+The `j2cl-maven-plugin` will shade the source during the transpile phase, so `walkingkooka.j2cl.java.io`
 is available to the runtime as `java.io`. 
 
 
@@ -42,5 +42,5 @@ You can either download the source using the "ZIP" button at the top
 of the github page, or you can make a clone using git:
 
 ```
-git clone git://github.com/mP1/java-io-j2cl.git
+git clone git://github.com/mP1/j2cl-java-io.git
 ```

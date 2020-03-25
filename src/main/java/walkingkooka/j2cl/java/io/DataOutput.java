@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package walkingkooka.javaioj2cl.java.io;
+package walkingkooka.j2cl.java.io;
 
 import java.io.IOException;
 
