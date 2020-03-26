@@ -15,10 +15,7 @@
  *
  */
 
-package walkingkooka.javaioj2cl.java.io;
-
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+package walkingkooka.j2cl.java.io;
 
 public class EOFExceptionTest extends JavaIoTestCase<EOFException> {
 

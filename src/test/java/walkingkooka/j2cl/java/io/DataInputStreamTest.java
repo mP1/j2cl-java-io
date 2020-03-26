@@ -15,11 +15,9 @@
  *
  */
 
-package walkingkooka.javaioj2cl.java.io;
+package walkingkooka.j2cl.java.io;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

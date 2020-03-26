@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Miroslav Pokorny (github.com/mP1)
+ * Copyright 2019 Miroslav Pokorny (github.com/mP1)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,24 +15,23 @@
  *
  */
 
-package walkingkooka.javaioj2cl.java.io;
+package walkingkooka.j2cl.java.io;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
-
-public class UTFDataFormatExceptionTest extends JavaIoTestCase<UTFDataFormatException> {
+public final class DataOutputTest extends JavaIoTestCase<DataOutput> {
 
     @Override
     public void testAllConstructorsVisibility() {
     }
 
+    // ClassTesting2....................................................................................................
+
     @Override
-    public Class<UTFDataFormatException> type() {
-        return UTFDataFormatException.class;
+    public Class<DataOutput> type() {
+        return DataOutput.class;
     }
 
     @Override
     Class<?> jdkType() {
-        return java.io.UTFDataFormatException.class;
+        return java.io.DataOutput.class;
     }
 }

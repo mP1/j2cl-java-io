@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.javaioj2cl.java.io;
+package walkingkooka.j2cl.java.io;
 
 public final class DataInputTest extends JavaIoTestCase<DataInput> {
 

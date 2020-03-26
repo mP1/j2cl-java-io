@@ -15,36 +15,33 @@
  *  limitations under the License.
  */
 
-package walkingkooka.javaioj2cl.java.io;
+package walkingkooka.j2cl.java.io;
 
 import java.io.IOException;
 
 /**
- * Signals that an incorrectly encoded UTF-8 string has been encountered, most
- * likely while reading some {@link DataInputStream}.
- * 
- * @see DataInputStream#readUTF()
+ * Thrown when a program encounters the end of a file or stream during an input
+ * operation.
  */
-public class UTFDataFormatException extends IOException {
+public class EOFException extends IOException {
 
-    private static final long serialVersionUID = 420743449228280612L;
+    private static final long serialVersionUID = 6433858223774886977L;
 
     /**
-     * Constructs a new {@code UTFDataFormatException} with its stack trace
-     * filled in.
+     * Constructs a new {@code EOFException} with its stack trace filled in.
      */
-    public UTFDataFormatException() {
+    public EOFException() {
         super();
     }
 
     /**
-     * Constructs a new {@code UTFDataFormatException} with its stack trace and
-     * detail message filled in.
+     * Constructs a new {@code EOFException} with its stack trace and detail
+     * message filled in.
      * 
      * @param detailMessage
      *            the detail message for this exception.
      */
-    public UTFDataFormatException(String detailMessage) {
+    public EOFException(String detailMessage) {
         super(detailMessage);
     }
 }

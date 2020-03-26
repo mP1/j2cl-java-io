@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Miroslav Pokorny (github.com/mP1)
+ * Copyright 2020 Miroslav Pokorny (github.com/mP1)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,23 +15,21 @@
  *
  */
 
-package walkingkooka.javaioj2cl.java.io;
+package walkingkooka.j2cl.java.io;
 
-public final class PushbackInputStreamTest extends JavaIoTestCase<PushbackInputStream> {
+public class UTFDataFormatExceptionTest extends JavaIoTestCase<UTFDataFormatException> {
 
     @Override
     public void testAllConstructorsVisibility() {
     }
 
-    // ClassTesting2....................................................................................................
-
     @Override
-    public Class<PushbackInputStream> type() {
-        return PushbackInputStream.class;
+    public Class<UTFDataFormatException> type() {
+        return UTFDataFormatException.class;
     }
 
     @Override
     Class<?> jdkType() {
-        return java.io.PushbackInputStream.class;
+        return java.io.UTFDataFormatException.class;
     }
 }
