@@ -180,7 +180,7 @@
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
-                    <include>**/.walkingkooka-*.txt</include>
+                    <include>**/*</include>
                 </includes>
             </resource>
         </resources>
