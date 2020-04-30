@@ -305,6 +305,7 @@
 
                             <classpath-required/>
                             <ignored-dependencies>
+                                <param>org.apiguardian:apiguardian-api:*</param>
                                 <param>walkingkooka:j2cl-junit-java:*</param>
                                 <param>org.junit.platform:junit-platform-commons:*</param>
                                 <param>org.junit.platform:junit-platform-engine:*</param>
