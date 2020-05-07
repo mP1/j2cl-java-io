@@ -10,7 +10,7 @@
     <artifactId>j2cl-java-io</artifactId>
     <packaging>jar</packaging>
     <name>java.io.*</name>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <description>Additional missing java.io classes</description>
     <url>https://github.com/mP1/j2cl-java-io</url>
 
