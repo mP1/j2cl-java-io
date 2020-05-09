@@ -18,14 +18,35 @@ package test;
 import com.google.j2cl.junit.apt.J2clTestInput;
 import org.junit.Assert;
 import org.junit.Test;
+import walkingkooka.j2cl.java.io.string.StringDataInputDataOutput;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.DataInput;
 import java.io.DataInputStream;
+import java.io.DataOutput;
 import java.io.DataOutputStream;
 
 @J2clTestInput(JunitTest.class)
 public class JunitTest {
+
+    @Test
+    public void testStringDataOutputStringDataInput() throws Exception {
+        final StringBuilder written = new StringBuilder();
+
+        final DataOutput out = StringDataInputDataOutput.output(written::append);
+        out.writeBoolean(true);
+        out.writeInt(5);
+        out.writeDouble(6.75);
+        out.writeUTF("abc,123");
+
+        final DataInput in = StringDataInputDataOutput.input(written.toString());
+
+        Assert.assertEquals("readBoolean", true, in.readBoolean());
+        Assert.assertEquals("readInt", 5, in.readInt());
+        Assert.assertEquals("readDouble", 6.75, in.readDouble(), 0.1);
+        Assert.assertEquals("readUTF", "abc,123", in.readUTF());
+    }
 
     @Test
     public void testWriteDataOutputReadDataInput() throws Exception {
