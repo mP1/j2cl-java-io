@@ -275,6 +275,24 @@ public final class StringDataInputTest implements ClassTesting2<StringDataInput>
         this.toStringAndCheck(StringDataInput.with(source), source);
     }
 
+    @Test
+    public void testToStringAfterReads() throws Exception {
+        final String source = "11abc123";
+        final StringDataInput data = StringDataInput.with(source);
+        data.readBoolean();
+        data.readBoolean();
+        this.toStringAndCheck(data, "abc123");
+    }
+
+    @Test
+    public void testToStringWhenEmpty() throws Exception {
+        final String source = "11";
+        final StringDataInput data = StringDataInput.with(source);
+        data.readBoolean();
+        data.readBoolean();
+        this.toStringAndCheck(data, "");
+    }
+
     // ClassTesting2....................................................................................................
 
     @Override

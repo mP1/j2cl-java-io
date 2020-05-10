@@ -224,6 +224,10 @@ final class StringDataInput implements DataInput {
 
     @Override
     public String toString() {
-        return this.source;
+        final String source = this.source;
+        final int offset = this.offset;
+        return offset < source.length() ?
+                source.substring(offset) :
+                "";
     }
 }
