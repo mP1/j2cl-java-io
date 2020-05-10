@@ -69,17 +69,17 @@ final class StringDataOutput implements DataOutput {
 
     @Override
     public void writeChar(final int v) {
-        this.output.accept(String.valueOf((char) v)); // assumes char not code point
+        this.writeString(String.valueOf((char) v), false); // assumes char not code point
     }
 
     @Override
     public void writeInt(final int v) {
-        this.writeString(Integer.toString(v));
+        this.writeString(Integer.toString(v), true);
     }
 
     @Override
     public void writeLong(final long v) {
-        this.writeString(Long.toString(v));
+        this.writeString(Long.toString(v), true);
     }
 
     @Override
@@ -89,7 +89,8 @@ final class StringDataOutput implements DataOutput {
 
     @Override
     public void writeDouble(final double v) {
-        this.writeString(Double.toString(v).replace(".0", ""));
+        this.writeString(Double.toString(v).replace(".0", ""),
+                true);
     }
 
     @Override
@@ -105,18 +106,16 @@ final class StringDataOutput implements DataOutput {
     @Override
     public void writeUTF(final String s) {
         this.writeString(s.replace("\\", "\\\\")
-                .replace(",", "\\,"));
+                .replace(",", "\\,"),
+                true);
     }
 
-    private void writeSeparatorIfRequired() {
+    private void writeString(final String s, final boolean required) {
         if (this.separatorRequired) {
             this.output.accept(",");
         }
-        this.separatorRequired = true;
-    }
+        this.separatorRequired = required;
 
-    private void writeString(final String s) {
-        this.writeSeparatorIfRequired();
         this.output.accept(s);
     }
 
