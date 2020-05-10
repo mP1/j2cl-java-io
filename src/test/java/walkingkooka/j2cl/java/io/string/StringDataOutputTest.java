@@ -37,6 +37,25 @@ public final class StringDataOutputTest implements ClassTesting2<StringDataOutpu
     }
 
     @Test
+    public void testWriteBoolean() {
+        this.writeAndCheck((sdo) -> sdo.writeBoolean(false), "0");
+    }
+
+    @Test
+    public void testWriteBoolean2() {
+        this.writeAndCheck((sdo) -> sdo.writeBoolean(true), "1");
+    }
+
+    @Test
+    public void testWriteSeveralBooleans() {
+        this.writeAndCheck((sdo) -> {
+            sdo.writeBoolean(true);
+            sdo.writeBoolean(false);
+            sdo.writeBoolean(true);
+        }, "101");
+    }
+
+    @Test
     public void testWriteByte() {
         this.writeAndCheck((sdo) -> sdo.writeByte((byte) 0), "0");
     }
@@ -246,6 +265,24 @@ public final class StringDataOutputTest implements ClassTesting2<StringDataOutpu
             sdo.writeUTF(",");
             sdo.writeUTF("C");
         }, "A,\\,,C");
+    }
+
+    @Test
+    public void testWriteBooleanString() {
+        this.writeAndCheck((sdo) -> {
+            sdo.writeBoolean(true);
+            sdo.writeBoolean(false);
+            sdo.writeUTF("abc");
+        }, "10abc");
+    }
+
+    @Test
+    public void testWriteCharString() {
+        this.writeAndCheck((sdo) -> {
+            sdo.writeChar('A');
+            sdo.writeChar('B');
+            sdo.writeUTF("xyz");
+        }, "ABxyz");
     }
 
     private void writeAndCheck(final Consumer<StringDataOutput> dataOutput, final String expected) {

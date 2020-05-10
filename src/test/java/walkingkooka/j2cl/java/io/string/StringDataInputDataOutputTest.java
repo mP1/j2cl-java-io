@@ -162,6 +162,28 @@ public final class StringDataInputDataOutputTest implements PublicStaticHelperTe
         assertEquals(written.toString(), read.toString());
     }
 
+    @Test
+    public void testWriteBooleanCharIntStringRountrip() throws IOException {
+        final StringBuilder b = new StringBuilder();
+        final StringDataOutput out = StringDataOutput.with(b::append);
+
+        for(int i = 0; i < 3; i++) {
+            out.writeBoolean(true);
+            out.writeChar('A');
+            out.writeInt(123);
+            out.writeUTF("XYZ");
+        }
+
+        final StringDataInput input = StringDataInput.with(b.toString());
+
+        for(int i = 0; i < 3; i++) {
+            assertEquals(true, input.readBoolean());
+            assertEquals('A', input.readChar());
+            assertEquals(123, input.readInt());
+            assertEquals("XYZ", input.readUTF());
+        }
+    }
+
     @Override
     public Class<StringDataInputDataOutput> type() {
         return StringDataInputDataOutput.class;
