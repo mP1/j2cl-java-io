@@ -103,8 +103,13 @@ final class StringDataOutput implements DataOutput {
         this.writeUTF(s);
     }
 
+    /**
+     * Writing of nulls is not supported and will throw a {@link NullPointerException}.
+     */
     @Override
     public void writeUTF(final String s) {
+        Objects.requireNonNull(s, "string");
+
         this.writeString(s.replace("\\", "\\\\")
                 .replace(",", "\\,"),
                 true);

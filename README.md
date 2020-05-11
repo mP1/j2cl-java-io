@@ -31,7 +31,10 @@ Utilities particularly useful for creating binary data represented as a `java.la
 - [StringDataInput](https://github.com/mP1/j2cl-java-io/blob/master/src/main/java/walkingkooka/j2cl/java/io/string/StringDataInput.java) Consumes the `java.lang.String` produced by `StringDataOutput`.
 - [StringDataOutput](https://github.com/mP1/j2cl-java-io/blob/master/src/main/java/walkingkooka/j2cl/java/io/string/StringDataOutput.java) Useful to create a `java.lang.String` within an annotation processor.
 
-This package is not shaded and remains at its original package name.
+- This package is not shaded and remains at its original package name.
+- `StringDataOutput` writing null `String` throws `NullPointerException`.
+- `StringDataOutput` writing byte arrays throws `UnsupportedOperationException`.
+- `StringDataInput` reads never return `null`.
 
 
 
