@@ -25,29 +25,42 @@ This assumes the above classes are not available in `com.vertispan.j2cl:jre`.
 
 ## walkingkooka.j2cl.java.io
 
-Utilities particularly useful for creating binary data represented as a `java.lang.String` for later consumption in javascript as a `java.io.DataInput`.
-
-- [StringDataInputDataOutput](https://github.com/mP1/j2cl-java-io/blob/master/src/main/java/walkingkooka/j2cl/java/io/string/StringDataInputDataOutput.java) Factory for both `StringDataInput` and `StringDataOutput` instances.
-- [StringDataInput](https://github.com/mP1/j2cl-java-io/blob/master/src/main/java/walkingkooka/j2cl/java/io/string/StringDataInput.java) Consumes the `java.lang.String` produced by `StringDataOutput`.
-- [StringDataOutput](https://github.com/mP1/j2cl-java-io/blob/master/src/main/java/walkingkooka/j2cl/java/io/string/StringDataOutput.java) Useful to create a `java.lang.String` within an annotation processor.
-
-- This package is not shaded and remains at its original package name.
-- `StringDataOutput` writing null `String` throws `NullPointerException`.
-- `StringDataOutput` writing byte arrays throws `UnsupportedOperationException`.
-- `StringDataInput` reads never return `null`.
+- The package `walkingkooka.j2cl.java.io` is shaded to `java.io`.
 
 
 
-### Transpiling
+### StringDataInput
 
-The `j2cl-maven-plugin` will shade the source during the transpile phase, so `walkingkooka.j2cl.java.io`
-is available to the runtime as `java.io`. 
+- implements `java.io.DataInput`
+- Reads data from a `java.lang.String` previous written by `StringDataOutput`
+- This class is not shaded
 
 
 
-### Serialization
+#### Methods
 
-Serialization is not supported, and all support classes and forms including magic methods such as `writeReplace` are removed.
+- `readFully` throws `UnsupportedOperationException`
+- `readLine` throws `UnsupportedOperationException`
+- `readUTF` never returns `null`
+- `skipBytes` throws `UnsupportedOperationException`
+
+
+
+### StringDataOutput
+
+- implements `java.io.DataOutput`
+- Writes a `java.lang.String` which can be consumed by `StringDataOutput`
+- This class is not shaded
+
+
+
+
+#### Methods
+
+- `write(byte[])` throws `UnsupportedOperationException`
+- `write(byte[], int, int)` throws `UnsupportedOperationException`
+- `writeChars` null throws `NullPointerException`
+- `writeUTF` null throws `NullPointerException`
 
 
 
