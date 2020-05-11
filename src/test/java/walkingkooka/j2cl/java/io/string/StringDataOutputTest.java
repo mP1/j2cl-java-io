@@ -236,6 +236,13 @@ public final class StringDataOutputTest implements ClassTesting2<StringDataOutpu
     }
 
     @Test
+    public void testWriteUTFNullFails() {
+        assertThrows(NullPointerException.class, () -> StringDataOutput.with((s) -> {
+            throw new UnsupportedOperationException();
+        }).writeUTF(null));
+    }
+
+    @Test
     public void testWriteUTF() {
         this.writeAndCheck((sdo) -> sdo.writeUTF(STRING), STRING);
     }
