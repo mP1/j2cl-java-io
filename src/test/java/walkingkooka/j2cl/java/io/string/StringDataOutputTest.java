@@ -91,7 +91,7 @@ public final class StringDataOutputTest implements ClassTesting2<StringDataOutpu
 
     @Test
     public void testWriteShort3() {
-        this.writeAndCheck((sdo) -> sdo.writeShort((short) 1), "1");
+        this.writeAndCheck((sdo) -> sdo.writeShort((short) -1), "-1");
     }
 
     @Test
