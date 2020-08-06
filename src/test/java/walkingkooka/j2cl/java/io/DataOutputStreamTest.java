@@ -27,10 +27,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public final class DataOutputStreamTest extends JavaIoTestCase<DataOutputStream> {
 
-    @Override
-    public void testAllConstructorsVisibility() {
-    }
-
     @Test
     public void tesWriteBoolean() throws Exception {
         final boolean[] values = new boolean[]{false, true, false, true};
@@ -338,10 +334,5 @@ public final class DataOutputStreamTest extends JavaIoTestCase<DataOutputStream>
     @Override
     public Class<DataOutputStream> type() {
         return DataOutputStream.class;
-    }
-
-    @Override
-    Class<?> jdkType() {
-        return java.io.DataOutputStream.class;
     }
 }

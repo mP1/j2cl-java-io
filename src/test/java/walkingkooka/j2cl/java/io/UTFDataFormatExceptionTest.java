@@ -17,19 +17,10 @@
 
 package walkingkooka.j2cl.java.io;
 
-public class UTFDataFormatExceptionTest extends JavaIoTestCase<UTFDataFormatException> {
-
-    @Override
-    public void testAllConstructorsVisibility() {
-    }
+public final class UTFDataFormatExceptionTest extends JavaIoTestCase<UTFDataFormatException> {
 
     @Override
     public Class<UTFDataFormatException> type() {
         return UTFDataFormatException.class;
-    }
-
-    @Override
-    Class<?> jdkType() {
-        return java.io.UTFDataFormatException.class;
     }
 }

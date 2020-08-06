@@ -19,19 +19,10 @@ package walkingkooka.j2cl.java.io;
 
 public final class PushbackInputStreamTest extends JavaIoTestCase<PushbackInputStream> {
 
-    @Override
-    public void testAllConstructorsVisibility() {
-    }
-
     // ClassTesting2....................................................................................................
 
     @Override
     public Class<PushbackInputStream> type() {
         return PushbackInputStream.class;
-    }
-
-    @Override
-    Class<?> jdkType() {
-        return java.io.PushbackInputStream.class;
     }
 }

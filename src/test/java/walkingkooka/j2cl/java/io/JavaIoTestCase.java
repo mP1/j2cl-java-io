@@ -17,33 +17,40 @@
 
 package walkingkooka.j2cl.java.io;
 
-import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.J2clShadedClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.javashader.ShadedClassTesting;
+import walkingkooka.predicate.Predicates;
+import walkingkooka.reflect.PackageName;
 
-import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
 
-public abstract class JavaIoTestCase<T> implements ClassTesting2<T>, J2clShadedClassTesting {
+public abstract class JavaIoTestCase<T> implements ShadedClassTesting<T> {
 
     JavaIoTestCase() {
         super();
     }
 
-    @Test
-    public final void testFieldDeclarations() throws IOException {
-        this.fieldDeclarationsCheck(this.type(), this.jdkType());
-    }
-
-    @Test
-    public final void testMethodSignatures() throws IOException {
-        this.methodSignaturesCheck(this.type(), this.jdkType());
+    @Override
+    public final Predicate<Constructor> requiredConstructors() {
+        return Predicates.always();
     }
 
     @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.of(this.jdkType());
+    public final Predicate<Method> requiredMethods() {
+        return Predicates.always();
     }
 
-    abstract Class<?> jdkType();
+    @Override
+    public final Predicate<Field> requiredFields() {
+        return Predicates.always();
+    }
+
+    @Override
+    public UnaryOperator<Class<?>> typeMapper() {
+        return ShadedClassTesting.typeMapper(PackageName.from(this.getClass().getPackage()),
+                PackageName.from(java.io.File.class.getPackage()));
+    }
 }
