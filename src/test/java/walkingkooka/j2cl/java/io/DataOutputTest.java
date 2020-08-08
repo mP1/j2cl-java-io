@@ -19,19 +19,10 @@ package walkingkooka.j2cl.java.io;
 
 public final class DataOutputTest extends JavaIoTestCase<DataOutput> {
 
-    @Override
-    public void testAllConstructorsVisibility() {
-    }
-
     // ClassTesting2....................................................................................................
 
     @Override
     public Class<DataOutput> type() {
         return DataOutput.class;
-    }
-
-    @Override
-    Class<?> jdkType() {
-        return java.io.DataOutput.class;
     }
 }

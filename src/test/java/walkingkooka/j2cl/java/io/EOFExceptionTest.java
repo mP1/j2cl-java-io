@@ -20,16 +20,7 @@ package walkingkooka.j2cl.java.io;
 public class EOFExceptionTest extends JavaIoTestCase<EOFException> {
 
     @Override
-    public void testAllConstructorsVisibility() {
-    }
-
-    @Override
     public Class<EOFException> type() {
         return EOFException.class;
-    }
-
-    @Override
-    Class<?> jdkType() {
-        return java.io.EOFException.class;
     }
 }
