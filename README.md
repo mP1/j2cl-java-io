@@ -64,12 +64,3 @@ This assumes the above classes are not available in `com.vertispan.j2cl:jre`.
 - `writeUTF` null throws `NullPointerException`
 
 
-
-## Getting the source
-
-You can either download the source using the "ZIP" button at the top
-of the github page, or you can make a clone using git:
-
-```
-git clone git://github.com/mP1/j2cl-java-io.git
-```
