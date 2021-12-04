@@ -26,8 +26,6 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public final class StringDataInputDataOutputTest implements PublicStaticHelperTesting<StringDataInputDataOutput> {
 
     @Test
@@ -49,7 +47,7 @@ public final class StringDataInputDataOutputTest implements PublicStaticHelperTe
             read.add(input.readByte());
         }
 
-        assertEquals(written, read);
+        this.checkEquals(written, read);
     }
 
     @Test
@@ -71,7 +69,7 @@ public final class StringDataInputDataOutputTest implements PublicStaticHelperTe
             read.add(input.readShort());
         }
 
-        assertEquals(written, read);
+        this.checkEquals(written, read);
     }
 
     @Test
@@ -93,7 +91,7 @@ public final class StringDataInputDataOutputTest implements PublicStaticHelperTe
             read.add(input.readInt());
         }
 
-        assertEquals(written, read);
+        this.checkEquals(written, read);
     }
 
     @Test
@@ -115,7 +113,7 @@ public final class StringDataInputDataOutputTest implements PublicStaticHelperTe
             read.add(input.readChar());
         }
 
-        assertEquals(written, read);
+        this.checkEquals(written, read);
     }
 
     @Test
@@ -137,7 +135,7 @@ public final class StringDataInputDataOutputTest implements PublicStaticHelperTe
             read.add(input.readUTF());
         }
 
-        assertEquals(written.toString(), read.toString());
+        this.checkEquals(written.toString(), read.toString());
     }
 
     @Test
@@ -159,7 +157,7 @@ public final class StringDataInputDataOutputTest implements PublicStaticHelperTe
             read.add(input.readUTF());
         }
 
-        assertEquals(written.toString(), read.toString());
+        this.checkEquals(written.toString(), read.toString());
     }
 
     @Test
@@ -177,10 +175,10 @@ public final class StringDataInputDataOutputTest implements PublicStaticHelperTe
         final StringDataInput input = StringDataInput.with(b.toString());
 
         for(int i = 0; i < 3; i++) {
-            assertEquals(true, input.readBoolean());
-            assertEquals('A', input.readChar());
-            assertEquals(123, input.readInt());
-            assertEquals("XYZ", input.readUTF());
+            this.checkEquals(true, input.readBoolean());
+            this.checkEquals('A', input.readChar());
+            this.checkEquals(123, input.readInt());
+            this.checkEquals("XYZ", input.readUTF());
         }
     }
 

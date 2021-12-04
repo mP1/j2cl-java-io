@@ -25,7 +25,6 @@ import walkingkooka.reflect.JavaVisibility;
 import java.io.IOException;
 import java.util.function.Consumer;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
@@ -220,7 +219,7 @@ public final class StringDataOutputTest implements ClassTesting2<StringDataOutpu
             expected.append(c);
         }
 
-        assertEquals(expected.toString(), b.toString());
+        this.checkEquals(expected.toString(), b.toString());
     }
 
     private final static String STRING = "abc123";
@@ -296,7 +295,7 @@ public final class StringDataOutputTest implements ClassTesting2<StringDataOutpu
         final StringBuilder text = new StringBuilder();
         final StringDataOutput stringDataOutput = StringDataOutput.with(text::append);
         dataOutput.accept(stringDataOutput);
-        assertEquals(expected, text.toString());
+        this.checkEquals(expected, text.toString());
     }
 
     @Test
