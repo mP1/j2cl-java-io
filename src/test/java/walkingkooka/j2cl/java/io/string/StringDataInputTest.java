@@ -36,58 +36,58 @@ public final class StringDataInputTest implements ClassTesting2<StringDataInput>
 
     @Test
     public void testReadBoolean() throws IOException {
-        assertEquals(false, StringDataInput.with("0").readBoolean());
+        this.checkEquals(false, StringDataInput.with("0").readBoolean());
     }
 
     @Test
     public void testReadBoolean2() throws IOException {
-        assertEquals(true, StringDataInput.with("1").readBoolean());
+        this.checkEquals(true, StringDataInput.with("1").readBoolean());
     }
 
     @Test
     public void testReadByte() throws IOException {
-        assertEquals((byte) 0, StringDataInput.with("00").readByte());
+        this.checkEquals((byte) 0, StringDataInput.with("00").readByte());
     }
 
     @Test
     public void testReadByte2() throws IOException {
-        assertEquals((byte) 1, StringDataInput.with("01").readByte());
+        this.checkEquals((byte) 1, StringDataInput.with("01").readByte());
     }
 
     @Test
     public void testReadByte3() throws IOException {
-        assertEquals((byte) -1, StringDataInput.with("-1").readByte());
+        this.checkEquals((byte) -1, StringDataInput.with("-1").readByte());
     }
 
     @Test
     public void testReadSeveralBytes() throws IOException {
         final StringDataInput data = StringDataInput.with("1,2,3");
-        assertEquals((byte) 1, data.readByte());
-        assertEquals((byte) 2, data.readByte());
-        assertEquals((byte) 3, data.readByte());
+        this.checkEquals((byte) 1, data.readByte());
+        this.checkEquals((byte) 2, data.readByte());
+        this.checkEquals((byte) 3, data.readByte());
     }
 
     @Test
     public void testReadUnsignedByte() throws IOException {
-        assertEquals((byte) 0, StringDataInput.with("00").readUnsignedByte());
+        this.checkEquals((byte) 0, (byte)StringDataInput.with("00").readUnsignedByte());
     }
 
     @Test
     public void testReadUnsignedByte2() throws IOException {
-        assertEquals((byte) 1, StringDataInput.with("1").readUnsignedByte());
+        this.checkEquals((byte) 1, (byte)StringDataInput.with("1").readUnsignedByte());
     }
 
     @Test
     public void testReadUnsignedByte3() throws IOException {
-        assertEquals(0xff, StringDataInput.with("255").readUnsignedByte());
+        this.checkEquals(0xff, StringDataInput.with("255").readUnsignedByte());
     }
 
     @Test
     public void testReadSeveralUnsignedBytes() throws IOException {
         final StringDataInput data = StringDataInput.with("1,2,3");
-        assertEquals(1, data.readUnsignedByte());
-        assertEquals(2, data.readUnsignedByte());
-        assertEquals(3, data.readUnsignedByte());
+        this.checkEquals(1, data.readUnsignedByte());
+        this.checkEquals(2, data.readUnsignedByte());
+        this.checkEquals(3, data.readUnsignedByte());
     }
 
     @Test
@@ -102,25 +102,25 @@ public final class StringDataInputTest implements ClassTesting2<StringDataInput>
 
     @Test
     public void testReadShort() throws IOException {
-        assertEquals((short) 0, StringDataInput.with("0").readShort());
+        this.checkEquals((short) 0, StringDataInput.with("0").readShort());
     }
 
     @Test
     public void testReadShort2() throws IOException {
-        assertEquals((short) 1, StringDataInput.with("1").readShort());
+        this.checkEquals((short) 1, StringDataInput.with("1").readShort());
     }
 
     @Test
     public void testReadShort3() throws IOException {
-        assertEquals((short) 123, StringDataInput.with("123").readShort());
+        this.checkEquals((short) 123, StringDataInput.with("123").readShort());
     }
 
     @Test
     public void testReadSeveralShorts() throws IOException {
         final StringDataInput data = StringDataInput.with("1,2,3");
-        assertEquals((short) 1, data.readShort());
-        assertEquals((short) 2, data.readShort());
-        assertEquals((short) 3, data.readShort());
+        this.checkEquals((short) 1, data.readShort());
+        this.checkEquals((short) 2, data.readShort());
+        this.checkEquals((short) 3, data.readShort());
     }
 
     @Test
@@ -135,71 +135,71 @@ public final class StringDataInputTest implements ClassTesting2<StringDataInput>
 
     @Test
     public void testReadUnsignedShort() throws IOException {
-        assertEquals(0, StringDataInput.with("0").readUnsignedShort());
+        this.checkEquals(0, StringDataInput.with("0").readUnsignedShort());
     }
 
     @Test
     public void testReadUnsignedShort2() throws IOException {
-        assertEquals(1, StringDataInput.with("1").readUnsignedShort());
+        this.checkEquals(1, StringDataInput.with("1").readUnsignedShort());
     }
 
     @Test
     public void testReadUnsignedShort3() throws IOException {
-        assertEquals(0xffff, StringDataInput.with("" + 0xffff).readUnsignedShort());
+        this.checkEquals(0xffff, StringDataInput.with("" + 0xffff).readUnsignedShort());
     }
 
     @Test
     public void testReadSeveralUnsignedShort() throws IOException {
         final StringDataInput data = StringDataInput.with("1,2,3");
-        assertEquals(1, data.readUnsignedByte());
-        assertEquals(2, data.readUnsignedByte());
-        assertEquals(3, data.readUnsignedByte());
+        this.checkEquals(1, data.readUnsignedByte());
+        this.checkEquals(2, data.readUnsignedByte());
+        this.checkEquals(3, data.readUnsignedByte());
     }
 
     @Test
     public void testReadInt() throws IOException {
-        assertEquals((int) 0, StringDataInput.with("0").readInt());
+        this.checkEquals((int) 0, StringDataInput.with("0").readInt());
     }
 
     @Test
     public void testReadInt2() throws IOException {
-        assertEquals(1, StringDataInput.with("00000001").readInt());
+        this.checkEquals(1, StringDataInput.with("00000001").readInt());
     }
 
     @Test
     public void testReadInt3() throws IOException {
-        assertEquals(123, StringDataInput.with("123").readInt());
+        this.checkEquals(123, StringDataInput.with("123").readInt());
     }
 
     @Test
     public void testReadSeveralInts() throws IOException {
         final StringDataInput data = StringDataInput.with("1,2,3");
-        assertEquals(1, data.readInt());
-        assertEquals(2, data.readInt());
-        assertEquals(3, data.readInt());
+        this.checkEquals(1, data.readInt());
+        this.checkEquals(2, data.readInt());
+        this.checkEquals(3, data.readInt());
     }
 
     @Test
     public void testReadLong() throws IOException {
-        assertEquals(0L, StringDataInput.with("0").readLong());
+        this.checkEquals(0L, StringDataInput.with("0").readLong());
     }
 
     @Test
     public void testReadLong2() throws IOException {
-        assertEquals(1L, StringDataInput.with("1").readLong());
+        this.checkEquals(1L, StringDataInput.with("1").readLong());
     }
 
     @Test
     public void testReadLong3() throws IOException {
-        assertEquals((long) 123, StringDataInput.with("123").readLong());
+        this.checkEquals((long) 123, StringDataInput.with("123").readLong());
     }
 
     @Test
     public void testReadSeveralLongs() throws IOException {
         final StringDataInput data = StringDataInput.with("1,2,3");
-        assertEquals(1L, data.readLong());
-        assertEquals(2L, data.readLong());
-        assertEquals(3L, data.readLong());
+        this.checkEquals(1L, data.readLong());
+        this.checkEquals(2L, data.readLong());
+        this.checkEquals(3L, data.readLong());
     }
 
     @Test
@@ -230,43 +230,43 @@ public final class StringDataInputTest implements ClassTesting2<StringDataInput>
 
     @Test
     public void testReadChar() throws IOException {
-        assertEquals('A', StringDataInput.with("A").readChar());
+        this.checkEquals('A', StringDataInput.with("A").readChar());
     }
 
     @Test
     public void testReadSeveralChars() throws IOException {
         final StringDataInput data = StringDataInput.with("ab,");
-        assertEquals('a', data.readChar());
-        assertEquals('b', data.readChar());
-        assertEquals(',', data.readChar());
+        this.checkEquals('a', data.readChar());
+        this.checkEquals('b', data.readChar());
+        this.checkEquals(',', data.readChar());
     }
 
     @Test
     public void testReadUTFEmpty() throws IOException {
-        assertEquals("", StringDataInput.with("").readUTF());
+        this.checkEquals("", StringDataInput.with("").readUTF());
     }
 
     @Test
     public void testReadUTF() throws IOException {
-        assertEquals("A", StringDataInput.with("A").readUTF());
+        this.checkEquals("A", StringDataInput.with("A").readUTF());
     }
 
     @Test
     public void testReadUTF2() throws IOException {
-        assertEquals("ABC123", StringDataInput.with("ABC123").readUTF());
+        this.checkEquals("ABC123", StringDataInput.with("ABC123").readUTF());
     }
 
     @Test
     public void testReadUTFWithEscaped() throws IOException {
-        assertEquals("ABC,123", StringDataInput.with("ABC\\,123").readUTF());
+        this.checkEquals("ABC,123", StringDataInput.with("ABC\\,123").readUTF());
     }
 
     @Test
     public void testReadSeveralUTFs() throws IOException {
         final StringDataInput data = StringDataInput.with("a,,bcd\\,efg");
-        assertEquals("a", data.readUTF());
-        assertEquals("", data.readUTF());
-        assertEquals("bcd,efg", data.readUTF());
+        this.checkEquals("a", data.readUTF());
+        this.checkEquals("", data.readUTF());
+        this.checkEquals("bcd,efg", data.readUTF());
     }
 
     @Test
