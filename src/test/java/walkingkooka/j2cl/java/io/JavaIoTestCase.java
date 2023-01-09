@@ -34,7 +34,7 @@ public abstract class JavaIoTestCase<T> implements ShadedClassTesting<T> {
     }
 
     @Override
-    public final Predicate<Constructor> requiredConstructors() {
+    public final Predicate<Constructor<?>> requiredConstructors() {
         return Predicates.always();
     }
 
