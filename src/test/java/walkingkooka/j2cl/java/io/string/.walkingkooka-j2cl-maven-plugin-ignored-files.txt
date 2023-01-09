@@ -1,5 +1,0 @@
-#
-# Filter out JRE tests
-#
-*Test.*
-*TestCase.*
