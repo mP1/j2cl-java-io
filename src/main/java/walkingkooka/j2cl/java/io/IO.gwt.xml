@@ -2,6 +2,8 @@
 <module>
     <inherits name="walkingkooka.Walkingkooka"/>
 
-    <source path=""/>
+    <source path="">
+        <exclude name="super/**"/>
+    </source>
     <super-source path="super"/>
 </module>
