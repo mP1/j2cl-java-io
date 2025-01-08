@@ -18,7 +18,6 @@
 package walkingkooka.j2cl.java.io;
 
 import java.io.IOException;
-import java.io.RandomAccessFile;
 
 /**
  * Defines an interface for classes that are able to write typed data to some
@@ -28,7 +27,7 @@ import java.io.RandomAccessFile;
  * MUTF-8} encoded strings.
  *
  * @see DataOutputStream
- * @see RandomAccessFile
+ * @see java.io.RandomAccessFile
  */
 public interface DataOutput {
 
