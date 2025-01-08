@@ -21,9 +21,11 @@ package walkingkooka.j2cl.java.io;
 //import org.apache.harmony.luni.util.Util;
 
 
+import java.io.BufferedReader;
 import java.io.FilterInputStream;
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
 
 /**
  * Wraps an existing {@link InputStream} and reads typed data from it.
@@ -31,7 +33,7 @@ import java.io.IOException;
  * be read include byte, 16-bit short, 32-bit int, 32-bit float, 64-bit long,
  * 64-bit double, byte strings, and strings encoded in
  * {@link DataInput modified UTF-8}.
- * 
+ *
  * @see DataOutputStream
  */
 public class DataInputStream extends FilterInputStream implements DataInput {
@@ -43,9 +45,8 @@ public class DataInputStream extends FilterInputStream implements DataInput {
      * reads are then filtered through this stream. Note that data read by this
      * stream is not in a human readable format and was most likely created by a
      * DataOutputStream.
-     * 
-     * @param in
-     *            the source InputStream the filter reads from.
+     *
+     * @param in the source InputStream the filter reads from.
      * @see DataOutputStream
      * @see RandomAccessFile
      */
@@ -57,13 +58,11 @@ public class DataInputStream extends FilterInputStream implements DataInput {
     /**
      * Reads bytes from this stream into the byte array {@code buffer}. Returns
      * the number of bytes that have been read.
-     * 
-     * @param buffer
-     *            the buffer to read bytes into.
+     *
+     * @param buffer the buffer to read bytes into.
      * @return the number of bytes that have been read or -1 if the end of the
-     *         stream has been reached.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * stream has been reached.
+     * @throws IOException if a problem occurs while reading from this stream.
      * @see DataOutput#write(byte[])
      * @see DataOutput#write(byte[], int, int)
      */
@@ -77,18 +76,14 @@ public class DataInputStream extends FilterInputStream implements DataInput {
      * the byte array {@code buffer} starting at {@code offset}. Returns the
      * number of bytes that have been read or -1 if no bytes have been read and
      * the end of the stream has been reached.
-     * 
-     * @param buffer
-     *            the byte array in which to store the bytes read.
-     * @param offset
-     *            the initial position in {@code buffer} to store the bytes
-     *            read from this stream.
-     * @param length
-     *            the maximum number of bytes to store in {@code buffer}.
+     *
+     * @param buffer the byte array in which to store the bytes read.
+     * @param offset the initial position in {@code buffer} to store the bytes
+     *               read from this stream.
+     * @param length the maximum number of bytes to store in {@code buffer}.
      * @return the number of bytes that have been read or -1 if the end of the
-     *         stream has been reached.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * stream has been reached.
+     * @throws IOException if a problem occurs while reading from this stream.
      * @see DataOutput#write(byte[])
      * @see DataOutput#write(byte[], int, int)
      */
@@ -100,13 +95,11 @@ public class DataInputStream extends FilterInputStream implements DataInput {
 
     /**
      * Reads a boolean from this stream.
-     * 
+     *
      * @return the next boolean value from the source stream.
-     * @throws EOFException
-     *             if the end of the filtered stream is reached before one byte
-     *             has been read.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * @throws EOFException if the end of the filtered stream is reached before one byte
+     *                      has been read.
+     * @throws IOException  if a problem occurs while reading from this stream.
      * @see DataOutput#writeBoolean(boolean)
      */
     public final boolean readBoolean() throws IOException {
@@ -119,13 +112,11 @@ public class DataInputStream extends FilterInputStream implements DataInput {
 
     /**
      * Reads an 8-bit byte value from this stream.
-     * 
+     *
      * @return the next byte value from the source stream.
-     * @throws EOFException
-     *             if the end of the filtered stream is reached before one byte
-     *             has been read.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * @throws EOFException if the end of the filtered stream is reached before one byte
+     *                      has been read.
+     * @throws IOException  if a problem occurs while reading from this stream.
      * @see DataOutput#writeByte(int)
      */
     public final byte readByte() throws IOException {
@@ -138,28 +129,26 @@ public class DataInputStream extends FilterInputStream implements DataInput {
 
     /**
      * Reads a 16-bit character value from this stream.
-     * 
+     *
      * @return the next char value from the source stream.
-     * @throws EOFException
-     *             if the end of the filtered stream is reached before two bytes
-     *             have been read.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * @throws EOFException if the end of the filtered stream is reached before two bytes
+     *                      have been read.
+     * @throws IOException  if a problem occurs while reading from this stream.
      * @see DataOutput#writeChar(int)
      */
     private int readToBuff(int count) throws IOException {
         int offset = 0;
 
-        while(offset < count) {
+        while (offset < count) {
             int bytesRead = in.read(buff, offset, count - offset);
-            if(bytesRead == -1) return bytesRead;
+            if (bytesRead == -1) return bytesRead;
             offset += bytesRead;
-        } 
+        }
         return offset;
     }
 
     public final char readChar() throws IOException {
-        if (readToBuff(2) < 0){
+        if (readToBuff(2) < 0) {
             throw new EOFException();
         }
         return (char) (((buff[0] & 0xff) << 8) | (buff[1] & 0xff));
@@ -168,13 +157,11 @@ public class DataInputStream extends FilterInputStream implements DataInput {
 
     /**
      * Reads a 64-bit double value from this stream.
-     * 
+     *
      * @return the next double value from the source stream.
-     * @throws EOFException
-     *             if the end of the filtered stream is reached before eight
-     *             bytes have been read.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * @throws EOFException if the end of the filtered stream is reached before eight
+     *                      bytes have been read.
+     * @throws IOException  if a problem occurs while reading from this stream.
      * @see DataOutput#writeDouble(double)
      */
     public final double readDouble() throws IOException {
@@ -183,13 +170,11 @@ public class DataInputStream extends FilterInputStream implements DataInput {
 
     /**
      * Reads a 32-bit float value from this stream.
-     * 
+     *
      * @return the next float value from the source stream.
-     * @throws EOFException
-     *             if the end of the filtered stream is reached before four
-     *             bytes have been read.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * @throws EOFException if the end of the filtered stream is reached before four
+     *                      bytes have been read.
+     * @throws IOException  if a problem occurs while reading from this stream.
      * @see DataOutput#writeFloat(float)
      */
     public final float readFloat() throws IOException {
@@ -200,14 +185,11 @@ public class DataInputStream extends FilterInputStream implements DataInput {
      * Reads bytes from this stream into the byte array {@code buffer}. This
      * method will block until {@code buffer.length} number of bytes have been
      * read.
-     * 
-     * @param buffer
-     *            to read bytes into.
-     * @throws EOFException
-     *             if the end of the source stream is reached before enough
-     *             bytes have been read.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     *
+     * @param buffer to read bytes into.
+     * @throws EOFException if the end of the source stream is reached before enough
+     *                      bytes have been read.
+     * @throws IOException  if a problem occurs while reading from this stream.
      * @see DataOutput#write(byte[])
      * @see DataOutput#write(byte[], int, int)
      */
@@ -220,24 +202,17 @@ public class DataInputStream extends FilterInputStream implements DataInput {
      * buffer} starting at the position {@code offset}. This method blocks until
      * {@code length} bytes have been read. If {@code length} is zero, then this
      * method returns without reading any bytes.
-     * 
-     * @param buffer
-     *            the byte array into which the data is read.
-     * @param offset
-     *            the offset in {@code buffer} from where to store the bytes
-     *            read.
-     * @param length
-     *            the maximum number of bytes to read.
-     * @throws EOFException
-     *             if the end of the source stream is reached before enough
-     *             bytes have been read.
-     * @throws IndexOutOfBoundsException
-     *             if {@code offset < 0} or {@code length < 0}, or if {@code
-     *             offset + length} is greater than the size of {@code buffer}.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
-     * @throws NullPointerException
-     *             if {@code buffer} or the source stream are null.
+     *
+     * @param buffer the byte array into which the data is read.
+     * @param offset the offset in {@code buffer} from where to store the bytes
+     *               read.
+     * @param length the maximum number of bytes to read.
+     * @throws EOFException              if the end of the source stream is reached before enough
+     *                                   bytes have been read.
+     * @throws IndexOutOfBoundsException if {@code offset < 0} or {@code length < 0}, or if {@code
+     *                                   offset + length} is greater than the size of {@code buffer}.
+     * @throws IOException               if a problem occurs while reading from this stream.
+     * @throws NullPointerException      if {@code buffer} or the source stream are null.
      * @see java.io.DataInput#readFully(byte[], int, int)
      */
     public final void readFully(byte[] buffer, int offset, int length)
@@ -271,21 +246,19 @@ public class DataInputStream extends FilterInputStream implements DataInput {
 
     /**
      * Reads a 32-bit integer value from this stream.
-     * 
+     *
      * @return the next int value from the source stream.
-     * @throws EOFException
-     *             if the end of the filtered stream is reached before four
-     *             bytes have been read.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * @throws EOFException if the end of the filtered stream is reached before four
+     *                      bytes have been read.
+     * @throws IOException  if a problem occurs while reading from this stream.
      * @see DataOutput#writeInt(int)
      */
     public final int readInt() throws IOException {
-        if (readToBuff(4) < 0){
+        if (readToBuff(4) < 0) {
             throw new EOFException();
         }
         return ((buff[0] & 0xff) << 24) | ((buff[1] & 0xff) << 16) |
-            ((buff[2] & 0xff) << 8) | (buff[3] & 0xff);
+                ((buff[2] & 0xff) << 8) | (buff[3] & 0xff);
     }
 
     /**
@@ -293,11 +266,10 @@ public class DataInputStream extends FilterInputStream implements DataInput {
      * source stream. A line is represented by zero or more characters followed
      * by {@code '\n'}, {@code '\r'}, {@code "\r\n"} or the end of the stream.
      * The string does not include the newline sequence.
-     * 
+     *
      * @return the contents of the line or {@code null} if no characters were
-     *         read before the end of the source stream has been reached.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * read before the end of the source stream has been reached.
+     * @throws IOException if a problem occurs while reading from this stream.
      * @deprecated Use {@link BufferedReader}
      */
     @Deprecated
@@ -337,40 +309,36 @@ public class DataInputStream extends FilterInputStream implements DataInput {
 
     /**
      * Reads a 64-bit long value from this stream.
-     * 
+     *
      * @return the next long value from the source stream.
-     * @throws EOFException
-     *             if the end of the filtered stream is reached before eight
-     *             bytes have been read.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * @throws EOFException if the end of the filtered stream is reached before eight
+     *                      bytes have been read.
+     * @throws IOException  if a problem occurs while reading from this stream.
      * @see DataOutput#writeLong(long)
      */
     public final long readLong() throws IOException {
-        if (readToBuff(8) < 0){
+        if (readToBuff(8) < 0) {
             throw new EOFException();
         }
         int i1 = ((buff[0] & 0xff) << 24) | ((buff[1] & 0xff) << 16) |
-            ((buff[2] & 0xff) << 8) | (buff[3] & 0xff);
+                ((buff[2] & 0xff) << 8) | (buff[3] & 0xff);
         int i2 = ((buff[4] & 0xff) << 24) | ((buff[5] & 0xff) << 16) |
-            ((buff[6] & 0xff) << 8) | (buff[7] & 0xff);
+                ((buff[6] & 0xff) << 8) | (buff[7] & 0xff);
 
         return ((i1 & 0xffffffffL) << 32) | (i2 & 0xffffffffL);
     }
 
     /**
      * Reads a 16-bit short value from this stream.
-     * 
+     *
      * @return the next short value from the source stream.
-     * @throws EOFException
-     *             if the end of the filtered stream is reached before two bytes
-     *             have been read.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * @throws EOFException if the end of the filtered stream is reached before two bytes
+     *                      have been read.
+     * @throws IOException  if a problem occurs while reading from this stream.
      * @see DataOutput#writeShort(int)
      */
     public final short readShort() throws IOException {
-        if (readToBuff(2) < 0){
+        if (readToBuff(2) < 0) {
             throw new EOFException();
         }
         return (short) (((buff[0] & 0xff) << 8) | (buff[1] & 0xff));
@@ -379,13 +347,11 @@ public class DataInputStream extends FilterInputStream implements DataInput {
     /**
      * Reads an unsigned 8-bit byte value from this stream and returns it as an
      * int.
-     * 
+     *
      * @return the next unsigned byte value from the source stream.
-     * @throws EOFException
-     *             if the end of the filtered stream has been reached before one
-     *             byte has been read.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * @throws EOFException if the end of the filtered stream has been reached before one
+     *                      byte has been read.
+     * @throws IOException  if a problem occurs while reading from this stream.
      * @see DataOutput#writeByte(int)
      */
     public final int readUnsignedByte() throws IOException {
@@ -399,17 +365,15 @@ public class DataInputStream extends FilterInputStream implements DataInput {
     /**
      * Reads a 16-bit unsigned short value from this stream and returns it as an
      * int.
-     * 
+     *
      * @return the next unsigned short value from the source stream.
-     * @throws EOFException
-     *             if the end of the filtered stream is reached before two bytes
-     *             have been read.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * @throws EOFException if the end of the filtered stream is reached before two bytes
+     *                      have been read.
+     * @throws IOException  if a problem occurs while reading from this stream.
      * @see DataOutput#writeShort(int)
      */
     public final int readUnsignedShort() throws IOException {
-        if (readToBuff(2) < 0){
+        if (readToBuff(2) < 0) {
             throw new EOFException();
         }
         return (char) (((buff[0] & 0xff) << 8) | (buff[1] & 0xff));
@@ -418,13 +382,12 @@ public class DataInputStream extends FilterInputStream implements DataInput {
     /**
      * Reads an string encoded in {@link DataInput modified UTF-8} from this
      * stream.
-     * 
+     *
      * @return the next {@link DataInput MUTF-8} encoded string read from the
-     *         source stream.
+     * source stream.
      * @throws EOFException if the end of the input is reached before the read
-     *         request can be satisfied.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     *                      request can be satisfied.
+     * @throws IOException  if a problem occurs while reading from this stream.
      * @see DataOutput#writeUTF(java.lang.String)
      */
     public final String readUTF() throws IOException {
@@ -450,13 +413,11 @@ public class DataInputStream extends FilterInputStream implements DataInput {
     /**
      * Reads a string encoded in {@link DataInput modified UTF-8} from the
      * {@code DataInput} stream {@code in}.
-     * 
-     * @param in
-     *            the input stream to read from.
+     *
+     * @param in the input stream to read from.
      * @return the next {@link DataInput MUTF-8} encoded string from the source
-     *         stream.
-     * @throws IOException
-     *             if a problem occurs while reading from this stream.
+     * stream.
+     * @throws IOException if a problem occurs while reading from this stream.
      * @see DataOutputStream#writeUTF(java.lang.String)
      */
     public static final String readUTF(DataInput in) throws IOException {
@@ -466,15 +427,13 @@ public class DataInputStream extends FilterInputStream implements DataInput {
     /**
      * Skips {@code count} number of bytes in this stream. Subsequent {@code
      * read()}s will not return these bytes unless {@code reset()} is used.
-     * 
+     * <p>
      * This method will not throw an {@link EOFException} if the end of the
      * input is reached before {@code count} bytes where skipped.
      *
-     * @param count
-     *            the number of bytes to skip.
+     * @param count the number of bytes to skip.
      * @return the number of bytes actually skipped.
-     * @throws IOException
-     *             if a problem occurs during skipping.
+     * @throws IOException if a problem occurs during skipping.
      * @see #mark(int)
      * @see #reset()
      */
