@@ -21,11 +21,9 @@ package walkingkooka.j2cl.java.io;
 //import org.apache.harmony.luni.util.Util;
 
 
-import java.io.BufferedReader;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.RandomAccessFile;
 
 /**
  * Wraps an existing {@link InputStream} and reads typed data from it.
@@ -48,7 +46,7 @@ public class DataInputStream extends FilterInputStream implements DataInput {
      *
      * @param in the source InputStream the filter reads from.
      * @see DataOutputStream
-     * @see RandomAccessFile
+     * @see java.io.RandomAccessFile
      */
     public DataInputStream(InputStream in) {
         super(in);
@@ -270,7 +268,7 @@ public class DataInputStream extends FilterInputStream implements DataInput {
      * @return the contents of the line or {@code null} if no characters were
      * read before the end of the source stream has been reached.
      * @throws IOException if a problem occurs while reading from this stream.
-     * @deprecated Use {@link BufferedReader}
+     * @deprecated Use {@link java.io.BufferedReader}
      */
     @Deprecated
     public final String readLine() throws IOException {

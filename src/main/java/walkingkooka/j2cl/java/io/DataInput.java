@@ -18,7 +18,6 @@
 package walkingkooka.j2cl.java.io;
 
 import java.io.IOException;
-import java.io.RandomAccessFile;
 
 /**
  * Defines an interface for classes that are able to read typed data from some
@@ -46,7 +45,7 @@ import java.io.RandomAccessFile;
  * href="http://www.unicode.org/reports/tr26/">CESU-8</a> than to UTF-8 per se.
  *
  * @see DataInputStream
- * @see RandomAccessFile
+ * @see java.io.RandomAccessFile
  */
 public interface DataInput {
     /**
