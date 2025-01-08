@@ -78,8 +78,8 @@ public final class StringDataInputDataOutputTest implements PublicStaticHelperTe
         final StringDataOutput out = StringDataOutput.with(b::append);
         final List<Integer> written = Lists.array();
 
-        for (long i = Integer.MIN_VALUE; i < Integer.MAX_VALUE; i+= Short.MAX_VALUE) {
-            final int v = (int)i;
+        for (long i = Integer.MIN_VALUE; i < Integer.MAX_VALUE; i += Short.MAX_VALUE) {
+            final int v = (int) i;
             out.writeInt(v);
             written.add(v);
         }
@@ -87,7 +87,7 @@ public final class StringDataInputDataOutputTest implements PublicStaticHelperTe
         final List<Integer> read = Lists.array();
         final StringDataInput input = StringDataInput.with(b.toString());
 
-        for (long i = Integer.MIN_VALUE; i < Integer.MAX_VALUE; i+= Short.MAX_VALUE) {
+        for (long i = Integer.MIN_VALUE; i < Integer.MAX_VALUE; i += Short.MAX_VALUE) {
             read.add(input.readInt());
         }
 
@@ -165,7 +165,7 @@ public final class StringDataInputDataOutputTest implements PublicStaticHelperTe
         final StringBuilder b = new StringBuilder();
         final StringDataOutput out = StringDataOutput.with(b::append);
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             out.writeBoolean(true);
             out.writeChar('A');
             out.writeInt(123);
@@ -174,7 +174,7 @@ public final class StringDataInputDataOutputTest implements PublicStaticHelperTe
 
         final StringDataInput input = StringDataInput.with(b.toString());
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             this.checkEquals(true, input.readBoolean());
             this.checkEquals('A', input.readChar());
             this.checkEquals(123, input.readInt());

@@ -69,12 +69,12 @@ public final class StringDataInputTest implements ClassTesting2<StringDataInput>
 
     @Test
     public void testReadUnsignedByte() throws IOException {
-        this.checkEquals((byte) 0, (byte)StringDataInput.with("00").readUnsignedByte());
+        this.checkEquals((byte) 0, (byte) StringDataInput.with("00").readUnsignedByte());
     }
 
     @Test
     public void testReadUnsignedByte2() throws IOException {
-        this.checkEquals((byte) 1, (byte)StringDataInput.with("1").readUnsignedByte());
+        this.checkEquals((byte) 1, (byte) StringDataInput.with("1").readUnsignedByte());
     }
 
     @Test

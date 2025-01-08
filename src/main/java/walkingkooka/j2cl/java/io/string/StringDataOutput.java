@@ -111,7 +111,7 @@ final class StringDataOutput implements DataOutput {
         Objects.requireNonNull(s, "string");
 
         this.writeString(s.replace("\\", "\\\\")
-                .replace(",", "\\,"),
+                        .replace(",", "\\,"),
                 true);
     }
 
