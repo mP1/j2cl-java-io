@@ -6,8 +6,6 @@
 ![](https://tokei.rs/b1/github/mP1/j2cl-java-io)
 [![J2CL compatible](https://img.shields.io/badge/J2CL-compatible-brightgreen.svg)](https://github.com/mP1/j2cl-central)
 
-
-
 # java.io for j2cl
 
 The following source have been copied from the Apache Harmony project with minor changes. The most significant change
@@ -23,21 +21,15 @@ is the replacement of calls to `Messages` to fetch exception messages from a pro
 
 This assumes the above classes are not available in `com.vertispan.j2cl:jre`.
 
-
-
 ## walkingkooka.j2cl.java.io
 
 - The package `walkingkooka.j2cl.java.io` is shaded to `java.io`.
-
-
 
 ### StringDataInput
 
 - implements `java.io.DataInput`
 - Reads data from a `java.lang.String` previous written by `StringDataOutput`
 - This class is not shaded
-
-
 
 #### Methods
 
@@ -46,16 +38,11 @@ This assumes the above classes are not available in `com.vertispan.j2cl:jre`.
 - `readUTF` never returns `null`
 - `skipBytes` throws `UnsupportedOperationException`
 
-
-
 ### StringDataOutput
 
 - implements `java.io.DataOutput`
 - Writes a `java.lang.String` which can be consumed by `StringDataOutput`
 - This class is not shaded
-
-
-
 
 #### Methods
 
