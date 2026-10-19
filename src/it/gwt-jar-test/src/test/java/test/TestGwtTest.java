@@ -26,10 +26,20 @@ public class TestGwtTest extends GWTTestCase {
         );
     }
 
-    public void testPath() {
+    public void testPathClass() {
         assertEquals(
             "java.nio.file.Path",
             Path.class.getName()
+        );
+    }
+
+    public void testPathToString() {
+        final String path = "/path/to/file.txt";
+
+        assertEquals(
+            path,
+            Path.of(path)
+                .toString()
         );
     }
 

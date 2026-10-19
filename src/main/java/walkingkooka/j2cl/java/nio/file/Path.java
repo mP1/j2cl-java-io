@@ -17,5 +17,42 @@
 
 package walkingkooka.j2cl.java.nio.file;
 
+import java.util.Objects;
+
 public final class Path {
+
+    public static Path of(final String path) {
+        Objects.requireNonNull(path, "path");
+
+        return new Path(path);
+    }
+
+    private Path(final String path) {
+        super();
+        this.path = path;
+    }
+
+    // Object...........................................................................................................
+
+    @Override
+    public int hashCode() {
+        return this.path.hashCode();
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        return this == other ||
+                (other instanceof Path && this.equals0((Path) other));
+    }
+
+    private boolean equals0(final Path other) {
+        return this.path.equals(other.path);
+    }
+
+    @Override
+    public String toString() {
+        return this.path;
+    }
+
+    private final String path;
 }
