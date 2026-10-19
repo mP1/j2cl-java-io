@@ -26,9 +26,18 @@ import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.DataOutput;
 import java.io.DataOutputStream;
+import java.nio.file.Path;
 
 @J2clTestInput(JunitTest.class)
 public class JunitTest {
+
+    @Test
+    public void testPath() {
+        Assert.assertEquals(
+                "java.nio.file.Path",
+                Path.class.getName()
+        )
+    }
 
     @Test
     public void testStringDataOutputStringDataInput() throws Exception {

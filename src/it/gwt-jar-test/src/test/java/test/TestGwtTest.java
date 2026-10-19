@@ -10,6 +10,7 @@ import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.DataOutput;
 import java.io.DataOutputStream;
+import java.nio.file.Path;
 
 public class TestGwtTest extends GWTTestCase {
 
@@ -22,6 +23,13 @@ public class TestGwtTest extends GWTTestCase {
         assertEquals(
                 1,
                 1
+        );
+    }
+
+    public void testPath() {
+        assertEquals(
+                "java.nio.file.Path",
+                Path.class.getName()
         );
     }
 

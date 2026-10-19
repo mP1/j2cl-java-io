@@ -7,3 +7,4 @@ walkingkooka.j2cl.java.io.string=walkingkooka.j2cl.java.io.string
 # Shade walkingkooka.j2cl.java.io.* to java.io
 #
 walkingkooka.j2cl.java.io=java.io
+walkingkooka.j2cl.java.nio=java.nio
