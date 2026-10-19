@@ -32,11 +32,22 @@ import java.nio.file.Path;
 public class JunitTest {
 
     @Test
-    public void testPath() {
-        Assert.assertEquals(
+    public void testPathClass() {
+        assertEquals(
             "java.nio.file.Path",
             Path.class.getName()
-        )
+        );
+    }
+
+    @Test
+    public void testPathToString() {
+        final String path = "/path/to/file.txt";
+
+        assertEquals(
+            path,
+            Path.of(path)
+                .toString()
+        );
     }
 
     @Test
