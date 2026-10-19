@@ -34,8 +34,8 @@ public class JunitTest {
     @Test
     public void testPath() {
         Assert.assertEquals(
-                "java.nio.file.Path",
-                Path.class.getName()
+            "java.nio.file.Path",
+            Path.class.getName()
         )
     }
 

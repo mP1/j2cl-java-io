@@ -227,7 +227,7 @@ final class StringDataInput implements DataInput {
         final String source = this.source;
         final int offset = this.offset;
         return offset < source.length() ?
-                source.substring(offset) :
-                "";
+            source.substring(offset) :
+            "";
     }
 }
