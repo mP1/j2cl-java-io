@@ -21,15 +21,15 @@ public class TestGwtTest extends GWTTestCase {
 
     public void testAssertEquals() {
         assertEquals(
-                1,
-                1
+            1,
+            1
         );
     }
 
     public void testPath() {
         assertEquals(
-                "java.nio.file.Path",
-                Path.class.getName()
+            "java.nio.file.Path",
+            Path.class.getName()
         );
     }
 

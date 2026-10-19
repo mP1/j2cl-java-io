@@ -90,7 +90,7 @@ final class StringDataOutput implements DataOutput {
     @Override
     public void writeDouble(final double v) {
         this.writeString(Double.toString(v).replace(".0", ""),
-                true);
+            true);
     }
 
     @Override
@@ -111,8 +111,8 @@ final class StringDataOutput implements DataOutput {
         Objects.requireNonNull(s, "string");
 
         this.writeString(s.replace("\\", "\\\\")
-                        .replace(",", "\\,"),
-                true);
+                .replace(",", "\\,"),
+            true);
     }
 
     private void writeString(final String s, final boolean required) {

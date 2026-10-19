@@ -51,6 +51,6 @@ public abstract class JavaIoTestCase<T> implements ShadedClassTesting<T> {
     @Override
     public UnaryOperator<Class<?>> typeMapper() {
         return ShadedClassTesting.typeMapper(PackageName.from(this.getClass().getPackage()),
-                PackageName.from(java.io.File.class.getPackage()));
+            PackageName.from(java.io.File.class.getPackage()));
     }
 }
