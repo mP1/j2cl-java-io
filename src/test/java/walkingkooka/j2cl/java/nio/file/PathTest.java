@@ -24,7 +24,8 @@ import walkingkooka.reflect.PublicClassTesting;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class PathTest implements PublicClassTesting<Path>, HashCodeEqualsDefinedTesting2<Path>, ToStringTesting<Path> {
+public final class PathTest implements PublicClassTesting<Path>, HashCodeEqualsDefinedTesting2<Path>,
+ ToStringTesting {
 
     @Test
     public void testOfWithNullFails() {
