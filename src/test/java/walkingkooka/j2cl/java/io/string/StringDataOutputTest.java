@@ -28,7 +28,7 @@ import java.util.function.Consumer;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-public final class StringDataOutputTest implements ClassTesting2<StringDataOutput>, ToStringTesting<StringDataOutput> {
+public final class StringDataOutputTest implements ClassTesting2<StringDataOutput>, ToStringTesting {
 
     @Test
     public void testNullConsumerFails() {

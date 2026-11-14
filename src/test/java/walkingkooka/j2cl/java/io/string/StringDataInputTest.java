@@ -27,7 +27,7 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class StringDataInputTest implements ClassTesting2<StringDataInput>, ToStringTesting<StringDataInput> {
+public final class StringDataInputTest implements ClassTesting2<StringDataInput>, ToStringTesting {
 
     @Test
     public void testNullSourceFails() {
